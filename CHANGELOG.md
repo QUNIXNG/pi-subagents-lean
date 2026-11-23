@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.26.2] - 2026-11-23
+
+Re-pinned to upstream `@tintinweb/pi-subagents@0.26.2` (from 0.26.1). The facade (`index.ts`) is unchanged: all four upstream tool names and their schema dispatch remain compatible.
+
+Upstream's measured surface is unchanged in this release: 4 tools totalling 8,936 tokens (`Agent` 2,550, `SubagentWorkflow` 6,020, `get_subagent_result` 183, `steer_subagent` 183), against Lean's single `subagent` facade at 276 — 8,660 saved (96.9%).
+
+Verified before release: `npm run check` (TypeScript plus 14 tests, including routing against the real pinned 0.26.2 upstream schemas) passes.
+
+## [0.26.1] - 2026-11-17
+
+Re-pinned to upstream `@tintinweb/pi-subagents@0.26.1` (from 0.25.0). No changelog entry was recorded at the time; this line is added retroactively so the version trail is complete. The facade was unchanged and the tool surface measured the same 4 tools / 8,936 tokens.
+
 ## [0.25.0] - 2026-11-13
 
 Re-pinned to upstream `@tintinweb/pi-subagents@0.25.0` (from 0.23.2). The facade (`index.ts`) is unchanged: all four upstream tool names and their schema dispatch remain compatible.
