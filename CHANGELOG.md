@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.26.3] - 2026-11-27
+
+Re-pinned to upstream `@tintinweb/pi-subagents@0.26.3` (from 0.26.2). The facade (`index.ts`) is unchanged: all four upstream tool names and their schema dispatch remain compatible.
+
+Upstream 0.26.3 is a reliability release for background work. `pi -p` now waits for background agents and workflows instead of dropping them at the end of the parent's turn, and the model answers in a further turn; the new `headlessWaitMinutes` setting (default `0` = no limit) caps that wait. A subagent that starts background nested agents waits for them rather than having them stopped, and a finished nested agent stays collectable while its parent still runs, so `Agent({ resume })` and `get_subagent_result` no longer report it "not found". Both fixes make some runs longer than before.
+
+Upstream's measured surface is unchanged: 4 tools totalling 8,936 tokens (`Agent` 2,550, `SubagentWorkflow` 6,020, `get_subagent_result` 183, `steer_subagent` 183), against Lean's single `subagent` facade at 276 — 8,660 saved (96.9%).
+
+Verified before release: `npm run check` (TypeScript plus 14 tests, including routing against the real pinned 0.26.3 upstream schemas) passes.
+
 ## [0.26.2] - 2026-11-23
 
 Re-pinned to upstream `@tintinweb/pi-subagents@0.26.2` (from 0.26.1). The facade (`index.ts`) is unchanged: all four upstream tool names and their schema dispatch remain compatible.
